@@ -1,0 +1,45 @@
+import React, { useState } from 'react';
+import './App.css';  // ایمپورت CSS در این خط
+
+function App() {
+  const [coins, setCoins] = useState(0);
+  const [energy, setEnergy] = useState(1000);
+
+  const collectCoin = () => {
+    if (energy > 0) {
+      setCoins(coins + 1);
+      setEnergy(energy - 1);
+    } else {
+      alert("You are out of energy!");
+    }
+  };
+
+  return (
+    <div className="app">
+      <h1>Tsunami Mini-App</h1>
+      <div className="coin-section">
+        <img
+          src="https://i.postimg.cc/26cZWj0N/In-Shot-copy-240x240.png"
+          alt="Coin"
+          className="coin-image"
+          onClick={collectCoin}
+        />
+        <div className="coin-count">
+          Coins: {coins} 🌊
+        </div>
+        <div className="energy-count">
+          Energy: {energy}
+        </div>
+      </div>
+      <div className="nav-buttons">
+        <button>Mine</button>
+        <button>Friends (coming soon...)</button>
+        <button>Tasks (coming soon...)</button>
+        <button>Boost (coming soon...)</button>
+        <button>Total (coming soon...)</button>
+      </div>
+    </div>
+  );
+}
+
+export default App;
